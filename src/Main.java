@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int tableSize = 997; // Prime number table size
+        int tableSize = 97; // Prime number table size
 
         List<String> words = readWordsFromFile("words.txt");
 
