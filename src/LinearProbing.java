@@ -1,3 +1,3 @@
-public class LinearProbing implements HashingTechnique {
+public class LinearProbing {
 
 }

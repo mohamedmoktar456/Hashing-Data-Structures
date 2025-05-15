@@ -1,3 +1,3 @@
-public class QuadraticProbing implements HashingTechnique {
+public class QuadraticProbing {
 
 }

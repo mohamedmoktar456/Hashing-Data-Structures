@@ -1,5 +1,5 @@
 import java.util.LinkedList;
 
-public class SeparateChaining implements HashingTechnique {
+public class SeparateChaining {
 
 }

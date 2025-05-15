@@ -1,3 +1,3 @@
-public class DoubleHashing implements HashingTechnique {
+public class DoubleHashing {
 
 }
