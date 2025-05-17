@@ -1,5 +1,5 @@
 
-public class DoubleHashingHashTable implements HashTable {
+public class DoubleHashingHashTable {
     private static final int DEFAULT_CAPACITY = 52;
     private final int capacity;
     private final String[] table;
