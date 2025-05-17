@@ -97,33 +97,4 @@ public class DoubleHashingHashTable {
         return -1;
     }
 
-    public void printStats() {
-        System.out.println("Table statistics\n");
-        System.out.println("Capacity: " + capacity);
-        System.out.println("Number of element: " + size);
-        System.out.println("No of collisions " + collisions);
-        System.out.println(" " + (size * 100.0 / capacity) + "%");
-    }
-
-    public void printTable() {
-        System.out.println(":");
-        for (int i = 0; i < capacity; i++) {
-            System.out.printf("Index %3d: %s %s%n",
-                    i,
-                    table[i] != null ? table[i] : "---",
-                    isDeleted[i] ? "(DELETED)" : "");
-        }
-    }
-
-
-    @Override
-    public int getCollisionCount() {
-        return 0;
-    }
-
-    @Override
-    public void printTbale() {
-
-    }
-
-}
+ 
