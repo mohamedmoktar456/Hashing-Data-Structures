@@ -1,4 +1,4 @@
-public class DoubleHashing {
+ublic class DoubleHashing {
     public static final int DEFAULT_CAPACITY = 53;
     public final int capacity;
     public final String[] table;
@@ -20,8 +20,7 @@ public class DoubleHashing {
 
     // Hash function 2: step size for probing
     public int hashFun2(String key) {
-        int step = HashUtils.hash(key, capacity - 1);
-        return (step == 0) ? 1 : step; 
+        return capacity - (Math.abs(key.hashCode()) % capacity);
     }
 
     // Insert element into the hash table
@@ -90,3 +89,4 @@ public class DoubleHashing {
         return size;
     }
 }
+
