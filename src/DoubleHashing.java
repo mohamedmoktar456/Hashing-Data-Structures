@@ -1,6 +1,4 @@
 
-
-import org.example.HashTable;
 public class DoubleHashingHashTable implements HashTable {
     private static final int DEFAULT_CAPACITY = 52;
     private final int capacity;
