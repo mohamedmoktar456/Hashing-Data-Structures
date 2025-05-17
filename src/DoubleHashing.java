@@ -1,9 +1,6 @@
-package org.example;
+
 
 import org.example.HashTable;
-
-import java.util.Scanner;
-
 public class DoubleHashingHashTable implements HashTable {
     private static final int DEFAULT_CAPACITY = 52;
     private final int capacity;
