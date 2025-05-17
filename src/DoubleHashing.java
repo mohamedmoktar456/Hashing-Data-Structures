@@ -1,10 +1,16 @@
-public class DoubleHashingHashTable {
-    private static final int DEFAULT_CAPACITY = 53; 
-    private final int capacity;
-    private final String[] table;
-    private final boolean[] isDeleted;
-    private int size;
-    private int collisions;
+public class DoubleHashing {
+    public static final int DEFAULT_CAPACITY = 53;
+    public final int capacity;
+    public final String[] table;
+    public final boolean[] isDeleted;
+    public int size;
+    public int collisions;
+
+    public DoubleHashing(int capacity, String[] table, boolean[] isDeleted) {
+        this.capacity = capacity;
+        this.table = table;
+        this.isDeleted = isDeleted;
+    }
 
 
     // Hash function 1: main hash
@@ -21,7 +27,7 @@ public class DoubleHashingHashTable {
     // Insert element into the hash table
     public void insert(String key) {
         if (size >= capacity) {
-            System.err.println("Table is full");
+            System.out.println("Table is full");
             return;
         }
 
