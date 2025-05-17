@@ -1,5 +1,5 @@
 public class QuadraticProbing {
-    static void hashing(String table[], int arr[]) {
+    static void hashing(String table[], String arr[]) {
         int tsize = table.length;
 
         for (int i = 0; i < arr.length; i++) {
