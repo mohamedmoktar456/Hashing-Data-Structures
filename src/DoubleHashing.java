@@ -1,50 +1,32 @@
+ublic class DoubleHashing {
+    public static final int DEFAULT_CAPACITY = 53;
+    public final int capacity;
+    public final String[] table;
+    public final boolean[] isDeleted;
+    public int size;
+    public int collisions;
 
-public class DoubleHashingHashTable {
-    private static final int DEFAULT_CAPACITY = 52;
-    private final int capacity;
-    private final String[] table;
-    private final boolean[] isDeleted;
-    private int size;
-    private int collisions;
-
-    public DoubleHashingHashTable() {
-        this(DEFAULT_CAPACITY);
+    public DoubleHashing(int capacity, String[] table, boolean[] isDeleted) {
+        this.capacity = capacity;
+        this.table = table;
+        this.isDeleted = isDeleted;
     }
 
-    public DoubleHashingHashTable(int initialCapacity) {
-        // Check if capacity greater than 0
-       if (initialCapacity <= 0) {
-            throw new IllegalArgumentException("Capacity greater than zero");
-        }
-        this.capacity = initialCapacity;
-        this.table = new String[capacity];
-        this.isDeleted = new boolean[capacity];
-        this.size = 0;
-        this.collisions = 0;
+
+    // Hash function 1: main hash
+    public int hashFun1(String key) {
+        return HashUtils.hash(key, capacity);
     }
 
-    // Hash function 1
-    private int hashFun1(String key) {
-        int hash = 0;
-        for (char c : key.toCharArray()) {
-            hash += (int) c; // Caculate ascii
-        }
-        return hash % capacity;
+    // Hash function 2: step size for probing
+    public int hashFun2(String key) {
+        return capacity - (Math.abs(key.hashCode()) % capacity);
     }
 
-    //Hash function 2
-    private int hashFun2(String key) {
-        int hash = 0;
-        for (char c : key.toCharArray()) {
-            hash += (int) c;
-        }
-        return capacity - (hash % capacity); // h2 = size - (x % size)
-    }
-
-    // to insert element
+    // Insert element into the hash table
     public void insert(String key) {
         if (size >= capacity) {
-            System.err.println("Table is full");
+            System.out.println("Table is full");
             return;
         }
 
@@ -54,7 +36,7 @@ public class DoubleHashingHashTable {
 
         while (table[index] != null && !isDeleted[index]) {
             if (table[index].equals(key)) {
-                return; // element is already exist
+                return; 
             }
             collisions++;
             index = (index + i * step) % capacity;
@@ -66,13 +48,13 @@ public class DoubleHashingHashTable {
         size++;
     }
 
-    // is-contains
+    // Check if key exists
     public boolean isContains(String key) {
         int index = findIndex(key);
         return index != -1;
     }
 
-    // Delete element
+    // Delete an element
     public void delete(String key) {
         int index = findIndex(key);
         if (index != -1) {
@@ -81,8 +63,8 @@ public class DoubleHashingHashTable {
         }
     }
 
-
-    private int findIndex(String key) {
+    // Internal: find index of a key
+    public int findIndex(String key) {
         int index = hashFun1(key);
         int step = hashFun2(key);
         int i = 1;
@@ -97,4 +79,14 @@ public class DoubleHashingHashTable {
         return -1;
     }
 
- 
+    // Optional: Get number of collisions
+    public int getCollisions() {
+        return collisions;
+    }
+
+    // Optional: Get current size
+    public int getSize() {
+        return size;
+    }
+}
+
